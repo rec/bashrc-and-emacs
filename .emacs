@@ -48,7 +48,7 @@
 (require 'dired-x)
 (require 'git-gutter)
 (require 'google-c-style)
-(require 'guess-style)
+;(require 'guess-style)
 (require 'ido)
 (require 'protobuf-mode)
 (require 'saveplace)
@@ -87,8 +87,8 @@
 ;;(setq split-height-threshold 0)
 ;;(setq compilation-window-height 30)
 
-(add-to-list 'default-frame-alist '(height . 90))
-(add-to-list 'default-frame-alist '(width . 90))
+(add-to-list 'default-frame-alist '(height . 80))
+(add-to-list 'default-frame-alist '(width . 80))
 
 (defun parent-directory (dir)
   (unless (equal "/" dir)
@@ -196,7 +196,7 @@ or nil if not found."
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.proto\\'" . protobuf-mode))
 (add-to-list 'auto-mode-alist '("\\.(inl|proto)\\'"   . c-mode))
-(add-to-list 'auto-mode-alist '("\\.(js|json)\\'"   . javascript-mode))
+(add-to-list 'auto-mode-alist '("\\.(js|jso|json)\\'"   . javascript-mode))
 (add-to-list 'auto-mode-alist '("\\.pyx\\'" . python-mode))
 (add-to-list 'auto-mode-alist '("SConstruct" . python-mode))
 
@@ -486,62 +486,65 @@ FILENAME should lack slashes."
   (find-file)
 )
 
-(global-set-key [s-z] 'undo)
-
-(global-set-key [f1] 'next-error)
-(global-set-key [s-f1] 'goto-line)
-
-(global-set-key [f2] 'rotate-tests)
-(global-set-key [s-M-up] 'rotate-tests)
-(global-set-key [s-f2] 'rotate-windows)
-
-(global-set-key [f3] 'do-list-buffers)
-
-(global-set-key [f4] 'switch-to-buffer)
-(global-set-key [s-f4] 'shell)
-
-(global-set-key [f5] 'find-file)
-(global-set-key [s-f5] 'reload-file)
-
-(global-set-key [f7] 'swirly-compile)
-
-(global-set-key [s-f6] 'git-commit-commit)
-(global-set-key [f6] 'magit-status)
-
-(global-set-key [f8] 'swirly-grep)
-;;(global-set-key [s-f8] 'grep-root)
-
 (defun to-grep() (interactive) (switch-to-buffer "*grep*"))
-(global-set-key [s-f8] 'to-grep)
-
-(global-set-key [s-f9] 'kmacro-call-macro)
-(global-set-key [f9] 'enlarge-window)
-
-(global-set-key [f10] 'query-replace)
-(global-set-key [s-f10] 'tags-query-replace)
-
-(global-set-key [s-f11] 'yank-pop)
-(global-set-key [f11] 'yank)
-
-(global-set-key [s-f12] 'append-next-kill)
-(global-set-key [f12] 'kill-line)
-
-(global-set-key [f13] 'delete-other-windows)
-(global-set-key [s-f13] 'to-two)
-
-(global-set-key [f14] 'split-window-vertically)
-(global-set-key [s-f14] 'split-window-horizontally)
-
-(global-set-key [f15] 'exchange-point-and-mark)
-(global-set-key [s-f15] 'balance-windows)
+;;(global-set-key [s-f8] 'grep-root)
 
 (defun back-window()
   (interactive)
   (other-window -1)
 )
 
-(global-set-key [s-up] 'back-window)
+(global-set-key [f10] 'query-replace)
+(global-set-key [f11] 'yank)
+(global-set-key [f12] 'kill-line)
+(global-set-key [f13] 'delete-other-windows)
+(global-set-key [f14] 'split-window-vertically)
+(global-set-key [f15] 'exchange-point-and-mark)
+(global-set-key [f1] 'next-error)
+(global-set-key [f2] 'rotate-tests)
+(global-set-key [f3] 'do-list-buffers)
+(global-set-key [f4] 'switch-to-buffer)
+(global-set-key [f5] 'find-file)
+(global-set-key [f6] 'magit-status)
+(global-set-key [f7] 'swirly-compile)
+(global-set-key [f8] 'swirly-grep)
+(global-set-key [f9] 'enlarge-window)
+
+(global-set-key [s-M-up] 'rotate-tests)
 (global-set-key [s-down] 'other-window)
+(global-set-key [s-f10] 'tags-query-replace)
+(global-set-key [s-f11] 'yank-pop)
+(global-set-key [s-f12] 'append-next-kill)
+(global-set-key [s-f13] 'to-two)
+(global-set-key [s-f14] 'split-window-horizontally)
+(global-set-key [s-f15] 'balance-windows)
+(global-set-key [s-f1] 'goto-line)
+(global-set-key [s-f2] 'rotate-windows)
+(global-set-key [s-f4] 'shell)
+(global-set-key [s-f5] 'reload-file)
+(global-set-key [s-f6] 'git-commit-commit)
+(global-set-key [s-f8] 'to-grep)
+(global-set-key [s-f9] 'kmacro-call-macro)
+(global-set-key [s-up] 'back-window)
+(global-set-key [s-z] 'undo)
+
+(global-set-key [A-M-up] 'rotate-tests)
+(global-set-key [A-down] 'other-window)
+(global-set-key [A-f10] 'tags-query-replace)
+(global-set-key [A-f11] 'yank-pop)
+(global-set-key [A-f12] 'append-next-kill)
+(global-set-key [A-f13] 'to-two)
+(global-set-key [A-f14] 'split-window-horizontally)
+(global-set-key [A-f15] 'balance-windows)
+(global-set-key [A-f1] 'goto-line)
+(global-set-key [A-f2] 'rotate-windows)
+(global-set-key [A-f4] 'shell)
+(global-set-key [A-f5] 'reload-file)
+(global-set-key [A-f6] 'git-commit-commit)
+(global-set-key [A-f8] 'to-grep)
+(global-set-key [A-f9] 'kmacro-call-macro)
+(global-set-key [A-up] 'back-window)
+(global-set-key [A-z] 'undo)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

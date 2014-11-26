@@ -3,6 +3,7 @@
 alias grit=/development/grit/Grit.py
 alias e=emacsclient
 alias lt=/development/rippled7/bin/lt
+alias gdiff="git diff >/tmp/git.diff"
 
 function rmpyc {
    find . -name \*.pyc | xargs rm
