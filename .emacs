@@ -21,6 +21,7 @@
  '(indent-tabs-mode nil)
  '(indicate-buffer-boundaries (quote left))
  '(java-indent 4)
+;; '(js--constant-re "\\_<\\(Infinity\\|NaN\\|arguments\\|false\\|null\\|self\\|t\\(?:his\\|rue\\)\\|undefined\\)\\_>")
  '(js-indent-level 4)
  '(kill-ring-max 1024)
  '(large-file-warning-threshold nil)
@@ -50,6 +51,7 @@
 (require 'google-c-style)
 (require 'guess-style)
 (require 'ido)
+(require 'json)
 (require 'protobuf-mode)
 (require 'saveplace)
 (require 'template)
@@ -354,6 +356,8 @@ FILENAME should lack slashes."
           ("\\.pyx" ".h")
           ("_test\\.py" ".py")
           ("\\.py" "_test.py")
+          ("_test\\.js" ".js")
+          ("\\.js" "_test.js")
           ))
          (working t))
   (while (and patterns working)
@@ -538,8 +542,8 @@ FILENAME should lack slashes."
   (other-window -1)
 )
 
-(global-set-key [s-up] 'back-window)
-(global-set-key [s-down] 'other-window)
+(global-set-key [A-up] 'back-window)
+(global-set-key [A-down] 'other-window)
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
