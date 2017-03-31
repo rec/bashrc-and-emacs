@@ -33,7 +33,7 @@
 (defun to-grep() (interactive) (switch-to-buffer "*grep*"))
 
 (defun swirly-grep()
-  "Run grep in the src/ripple directory."
+  "Run grep in the src directory."
   (interactive)
   (let ()
     (switch-to-buffer "*grep*")
@@ -282,3 +282,10 @@ FILENAME should lack slashes."
   (kill-new (buffer-file-name))
   (message (buffer-file-name))
   )
+
+(defun dos2unix ()
+  "Replace DOS eolns CR LF with Unix eolns CR"
+  (interactive)
+  (goto-char (point-min))
+  (while (search-forward "\r" nil t)
+    (replace-match "")))

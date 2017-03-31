@@ -55,8 +55,8 @@
       (gsk [A-f8] 'to-grep)
       ;;f9
       ;;f10
-      (gsk [4194411] 'kill-this-buffer)
-
+      (gsk [4194411] 'kill-this-buffer)  ;; Is this command K?
+      (gsk [4194413] 'advertised-undo)   ;; Annoying command-M
       (gsk [A-f11] 'swirly-run-python)
       (gsk [A-f12] 'kill-ring-save)
       (gsk [A-f13] 'yank-pop)
@@ -93,6 +93,11 @@
     (gsk [s-down] 'other-window)
     (gsk [s-kp-divide] 'apply-macro-to-region-lines)
     )
+
+
+(require 'golden-ratio-scroll-screen)
+(global-set-key [remap scroll-down-command] 'golden-ratio-scroll-screen-down)
+(global-set-key [remap scroll-up-command] 'golden-ratio-scroll-screen-up)
 
 ;; navigation
 ;; navigation
